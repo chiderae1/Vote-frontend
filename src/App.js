@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes, Navigate, redirect } from 'react-router-dom';
+
 import './App.css';
+import Navigation from './component/Navbar';
+import Home from './pages/Home';
+import Leaderboard from './component/Leaderboard';
+import Signup from './pages/Signup';
+import Otp from './pages/Otp';
+import Login from './pages/Login';
 
 function App() {
+  const YaleID = JSON.parse(localStorage.getItem('YaleID'))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route path='/Nomination' element={YaleID ? <Home /> : <Login/>} />
+          <Route path='/leaderboard' element={YaleID ? <Leaderboard /> : <Login/>} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup/otp' element={<Otp />} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
