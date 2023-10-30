@@ -32,7 +32,7 @@ const Otp = () => {
 
         if(response.ok){
             localStorage.setItem('YaleID',JSON.stringify(json))
-            navigate('/Nomination')
+            navigate('/')
         }
         if(!response.ok){
             setError(json)

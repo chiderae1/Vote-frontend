@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useNomineecontext from "../hooks/useNomineecontext";
 import useAuthcontext from "../hooks/useAuthContext";
 
@@ -82,6 +82,8 @@ const Signup = () => {
                 </Form>
                 {/* {ferror && <div className="error w-25">{ferror}</div>} */}
                 {error && <div className="error w-25">{error}</div>}
+
+                <p className="small p-2">have an account? <Link className="text-secondary" to={'/login'}>login</Link></p>
             </center>
         </div>
     );

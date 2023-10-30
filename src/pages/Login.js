@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -32,7 +32,7 @@ const Login = () => {
         if(response.ok){
             localStorage.setItem('YaleID',JSON.stringify(json))
             localStorage.setItem('Yalemail',JSON.stringify(email))
-            navigate('/Nomination')
+            navigate('/')
         }
         if(!response.ok){
             setError(json.error)
@@ -77,6 +77,8 @@ const Login = () => {
                 </Form>
                 {/* {ferror && <div className="error w-25">{ferror}</div>} */}
                 {error && <div className="error w-25">{error}</div>}
+                <p className="small p-2">Don't have an account? <Link className="text-secondary" to={'/signup'}>signup</Link></p>
+                
             </center>
         </div>
     );

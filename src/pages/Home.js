@@ -2,22 +2,39 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import useNomineecontext from '../hooks/useNomineecontext';
 const Home = () => {
-    const userId = JSON.parse(localStorage.getItem('YaleID'))
+    const userID = JSON.parse(localStorage.getItem('YaleID'))
     const email = JSON.parse(localStorage.getItem('Yalemail'))
     const [candidates, setCandidates] = useState()
-    const [nominees, setNominees] = useState({userID: userId,email:email})
+    const [nominees, setNominees] = useState({ userID: userID, email: email })
     const [disable, setDisable] = useState(true)
     const { dispatch } = useNomineecontext()
 
-    
     useEffect(() => {
-        alert('Nomination can only be done once')
+
         const fetchdata = async () => {
             const response = await fetch('http://localhost:8000/api/getcandidate')
 
             const json = await response.json()
             if (response.ok) {
                 setCandidates(json)
+                // alert('Nomination can only be done once')
+            }
+        }
+        fetchdata()
+    }, [])
+
+    useEffect(() => {
+        const fetchdata = async () => {
+            const response = await fetch('http://localhost:8000/api/validnomination/', {
+                method: 'POST',
+                body: JSON.stringify({ userID }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            const json = await response.json()
+            if (response.ok) {
+                setDisable(json.disable)
+                // alert('you have nominated already')
             }
         }
         fetchdata()
@@ -38,12 +55,12 @@ const Home = () => {
 
         const json = await response.json()
 
-        if(response.ok){
+        if (response.ok) {
             setDisable(json.disable)
             alert('nomination successful')
             dispatch({ type: 'nominated', payload: nominees })
         }
-        
+
     }
     return (
         <div className="p-3">

@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Routes>
-          <Route path='/Nomination' element={YaleID ? <Home /> : <Login/>} />
+          <Route path='/' element={YaleID ? <Home /> : <Login/>} />
           <Route path='/leaderboard' element={YaleID ? <Leaderboard /> : <Login/>} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
