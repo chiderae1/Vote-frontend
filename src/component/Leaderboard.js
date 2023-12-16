@@ -6,7 +6,7 @@ const Leaderboard = () => {
 
     useEffect(() => {
         const fetchnominee = async () => {
-            const response = await fetch('http://localhost:8000/api/leaderboard')
+            const response = await fetch('https://yalebackend.onrender.com/api/leaderboard')
             const json = await response.json()
 
             if (response.ok) {

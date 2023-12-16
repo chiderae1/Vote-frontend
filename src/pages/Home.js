@@ -12,7 +12,8 @@ const Home = () => {
     useEffect(() => {
 
         const fetchdata = async () => {
-            const response = await fetch('http://localhost:8000/api/getcandidate')
+            // const response = await fetch('http://localhost:8000/api/getcandidate')
+            const response = await fetch('https://yalebackend.onrender.com/api/getcandidate')
 
             const json = await response.json()
             if (response.ok) {
@@ -47,7 +48,7 @@ const Home = () => {
     }
 
     const handleSubmit = async () => {
-        const response = await fetch('http://localhost:8000/api/nominees', {
+        const response = await fetch('https://yalebackend.onrender.com/api/nominees', {
             method: 'POST',
             body: JSON.stringify(nominees),
             headers: { 'Content-Type': 'application/json' }

@@ -21,7 +21,7 @@ const Otp = () => {
         const password  = JSON.parse(localStorage.getItem('Yalepass'))
         const register = {email,password,otp}
         
-        const response = await fetch('http://localhost:8000/api/register/', {
+        const response = await fetch('https://yalebackend.onrender.com/api/register/', {
             method: 'POST',
             body: JSON.stringify(register),
             headers: { 'Content-Type': 'application/json' }

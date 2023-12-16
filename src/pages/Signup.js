@@ -23,7 +23,7 @@ const Signup = () => {
         e.preventDefault()
         setError(null)
         const register = { email, password }
-        const response = await fetch('http://localhost:8000/api/create/', {
+        const response = await fetch('https://yalebackend.onrender.com/api/create/', {
             method: 'POST',
             body: JSON.stringify(register),
             headers: { 'Content-Type': 'application/json' }
