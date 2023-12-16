@@ -66,14 +66,14 @@ const Home = () => {
         <div className="p-3">
             {candidates && candidates.map((item) => (
                 <div className="" key={item._id}>
-                    <p className="lead">{item.position}</p>
-                    <select className='d-block w-25 drop-down mb-3' onChange={(e) => handleNominee(e, item.position)}>
+                    <p className="lead">{item.Position}</p>
+                    <select className='d-block w-25 drop-down mb-3' onChange={(e) => handleNominee(e, item.Position)}>
                         <option value="" >Nominate condidate</option>
-                        <option value={item.candidate1}>{item.candidate1}</option>
-                        <option value={item.candidate2}>{item.candidate2}</option>
-                        <option value={item.candidate3}>{item.candidate3}</option>
-                        <option value={item.candidate4}>{item.candidate4}</option>
-                        <option value={item.candidate5}>{item.candidate5}</option>
+                        <option value={item.Candidate1}>{item.Candidate1}</option>
+                        <option value={item.Candidate2}>{item.Candidate2}</option>
+                        <option value={item.Candidate3}>{item.Candidate3}</option>
+                        <option value={item.Candidate4}>{item.Candidate4}</option>
+                        <option value={item.Candidate5}>{item.Candidate5}</option>
                     </select>
                 </div>
             ))
