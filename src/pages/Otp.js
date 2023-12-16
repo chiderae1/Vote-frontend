@@ -2,14 +2,14 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
-import useNomineecontext from '../hooks/useNomineecontext';
-import useAuthcontext from '../hooks/useAuthContext';
+// import useNomineecontext from '../hooks/useNomineecontext';
+// import useAuthcontext from '../hooks/useAuthContext';
 
 const Otp = () => {
     const [otp,setOtp] = useState()
     const [error,setError] = useState()
-    const {user} = useNomineecontext()
-    const {dispatch,Auth} = useAuthcontext()
+    // const {user} = useNomineecontext()
+    // const {dispatch,Auth} = useAuthcontext()
     const navigate = useNavigate();
 
 

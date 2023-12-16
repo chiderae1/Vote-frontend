@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useNavigate } from 'react-router-dom';
 import useNomineecontext from "../hooks/useNomineecontext";
-import useAuthcontext from "../hooks/useAuthContext";
+// import useAuthcontext from "../hooks/useAuthContext";
 
 const Signup = () => {
     const [email, setEmail] = useState()

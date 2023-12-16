@@ -39,8 +39,10 @@ const Home = () => {
             }
         }
         fetchdata()
+        // eslint-disable-next-line 
     }, [])
 
+    
     const handleNominee = (event, position) => {
         const nominee = event.target.value
         const updatedNominees = (include) => ({ ...include, [position]: nominee })

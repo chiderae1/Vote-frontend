@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Leaderboard = () => {
     const [leadboard, setLeadboard] = useState()
-    const [a] = useState([2, 3, 4])
+    // const [a] = useState([2, 3, 4])
 
     useEffect(() => {
         const fetchnominee = async () => {
