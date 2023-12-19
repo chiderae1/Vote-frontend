@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link, useNavigate } from 'react-router-dom';
+import useAuthcontext from "../hooks/useAuthContext";
 
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
     // const {dispatch} = useNomineecontext()
     const [showPassword, setShowPassword] = useState(false)
+    const {dispatch} = useAuthcontext()
 
     const togglePassword = () => {
         setShowPassword(!showPassword);
@@ -32,6 +34,7 @@ const Login = () => {
         if(response.ok){
             localStorage.setItem('YaleID',JSON.stringify(json))
             localStorage.setItem('Yalemail',JSON.stringify(email))
+            dispatch({type: 'LOGIN', payload : json})
             navigate('/')
         }
         if(!response.ok){

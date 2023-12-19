@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 export const Authcontext = createContext()
 
@@ -14,7 +14,13 @@ export const authReducer = (state,action) =>
 }
 
 const AuthcontextProvider = ({children}) => {
-    const [state,dispatch] = useReducer(authReducer, {Auth: 'chidera'} )
+    const [state,dispatch] = useReducer(authReducer, {Auth: null} )
+    useEffect(() => {
+        const Yaleid = JSON.parse(localStorage.getItem('YaleID'))
+        if(Yaleid){
+            dispatch({type : 'LOGIN', payload : Yaleid})
+        }
+    })
     return (
         <Authcontext.Provider value = {{...state,dispatch}}>
             {children}
